@@ -8,19 +8,19 @@ public class Animal {
     private double consumo_kg;
     
     public Animal(Cuidador cuidador, String nombre, String especie, double peso_kg, double consumo_kg){
-        if (peso_kg <= 0) {
-            throw new IllegalArgumentException("El peso debe ser mayor que cero.");
-        }
-
-        if (consumo_kg <= 0) {
-            throw new IllegalArgumentException("El consumo debe ser mayor que cero.");
-        }
-        
         this.cuidador = cuidador;
         this.nombre = nombre;
         this.especie = especie;
-        this.peso_kg = peso_kg;
-        this.consumo_kg = consumo_kg;
+        if (peso_kg > 0){
+            this.peso_kg = peso_kg;
+        } else {
+            this.peso_kg = 1.0;
+        }
+        if (consumo_kg > 0){
+            this.consumo_kg = consumo_kg;
+        } else {
+            this.consumo_kg = 1.0;
+        }
     }
 
     public Cuidador getcuidador() {
@@ -48,18 +48,22 @@ public class Animal {
         return peso_kg;
     }
     public void setpeso_kg(Double peso_kg){
-        this.peso_kg = peso_kg;
+        if (peso_kg > 0){
+            this.peso_kg = peso_kg;
+        }
     }
 
     public double getconsumo_kg() {
         return consumo_kg;
     }
     public void setconsumo_kg(Double consumo_kg){
-        this.consumo_kg = consumo_kg;
+        if (peso_kg > 0){
+            this.consumo_kg = consumo_kg;
+        }
     }
 
     public double calcularCosteDiario(double precio_alimento_kg) {
-        return consumo_kg * precio_alimento_kg;
+        return this.consumo_kg * precio_alimento_kg;
     }
 
 }

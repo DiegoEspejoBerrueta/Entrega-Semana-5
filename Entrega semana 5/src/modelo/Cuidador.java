@@ -31,4 +31,8 @@ public class Cuidador{
     public void setformacion(boolean formacion){
         this.formacion = formacion;
     }
+
+    public String getNombreCompleto(){
+        return nombre + " " + apellidos;
+    }
 }
