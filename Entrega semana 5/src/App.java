@@ -219,8 +219,10 @@ public class App {
             }
 
             System.out.println("|------------------------------------------------------------------------------------------------------------|");
-            System.out.println("| Coste diario total de la alimentación: " + refugio.calcularCosteTotalDiario() + " EUR                                                            |");
-            System.out.println("| Peso medio de los animales: " + refugio.calcularPesoMedio() + " Kg                                                                         |");
+            System.out.printf("| %-106s |\n", 
+                String.format("Coste diario total de alimentación: %.2f EUR", refugio.calcularCosteTotalDiario()));
+            System.out.printf("| %-106s |\n", 
+                String.format("Peso medio de los animales: %.2f kg", refugio.calcularPesoMedio()));
             System.out.println("|------------------------------------------------------------------------------------------------------------|");
 
         }
